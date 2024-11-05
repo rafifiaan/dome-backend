@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/custom"
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -16,10 +16,5 @@
     "BUN_INSTALL": "1",
     "NODE_ENV": "production"
   },
-  "build": {
-    "env": {
-      "BUN_INSTALL": "1",
-      "NODE_ENV": "production"
-    }
-  }
+  "buildCommand": "bun run server.js"
 }
