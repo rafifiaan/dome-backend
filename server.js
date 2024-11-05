@@ -33,7 +33,7 @@ app.listen(port, () => {
 
   // Endpoint untuk merespon "Hello"
 app.get('/', (req, res) => {
-    res.send('Hello');
+    res.send('Hello World!');
 })
 
 // Endpoint get all users
