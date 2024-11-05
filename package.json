@@ -8,7 +8,7 @@
     "circular-json": "^0.5.9",
     "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.35.0",
+    "drizzle-orm": "^0.36.0",
     "express": "^4.21.0",
     "flatted": "^3.3.1",
     "jsonwebtoken": "^9.0.2",
@@ -20,6 +20,8 @@
     "typebox": "^0.0.1"
   },
   "devDependencies": {
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.27.1",
     "nodemon": "^3.1.5",
     "typescript": "^5.6.2"
   },
