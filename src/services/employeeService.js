@@ -13,7 +13,7 @@ export const getAllKaryawan = async () => {
         console.error('Error fetching karyawan:', error);  
         throw new Error('Failed to fetch karyawan data');  
     }  
-};  
+};  // tes
 
 export const getKaryawanById = async (perner) => {
     try {
