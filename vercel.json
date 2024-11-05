@@ -7,7 +7,6 @@
     }
   ],
   "installCommand": "bun install",
-  "start": "bun run server.js",
   "routes": [
     {
       "src": "/(.*)",
