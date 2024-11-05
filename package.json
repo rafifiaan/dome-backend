@@ -21,7 +21,7 @@
     "typescript": "^5.6.2"
   },
   "scripts": {
-    "build": "bun build server.js --target node",
+    "build": "bun build server.js --target node --output dist",
     "start": "bun run server.js"
   }
 }
