@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "env": {
+    "BUN_INSTALL": "1",
+    "NODE_ENV": "production"
+  },
   "builds": [
     {
       "src": "./server.js",
@@ -11,14 +15,5 @@
       "src": "/(.*)",
       "dest": "/server.js"
     }
-  ],
-  "functions": {
-    "*/**/*.js": {
-      "runtime": "bun"
-    }
-  },
-  "env": {
-    "BUN_INSTALL": "1",
-    "NODE_ENV": "production"
-  }
+  ]
 }
