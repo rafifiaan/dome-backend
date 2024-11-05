@@ -12,6 +12,7 @@
       "dest": "/server.js"
     }
   ],
+  "buildCommand": "bun install --production",
   "env": {
     "BUN_INSTALL": "1"
   },
