@@ -6,8 +6,7 @@ import { getDashboardSummary } from './src/services/dashboardService';
 import { getAllKaryawan, getKaryawanById } from './src/services/employeeService';
 import { validateLogin } from './src/validators/loginValidator';
 import authenticate from './middleware/authenticate';
-// import { checkRole } from './middleware/checkRole';
-
+import fs from 'fs'; // Impor fs untuk membaca file/direktori
 
 dotenv.config();
 
@@ -17,7 +16,16 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Endpoint gett all users
+// Log untuk memeriksa apakah drizzle-orm terpasang dengan benar
+fs.readdir('./node_modules/drizzle-orm/node-postgres', (err, files) => {
+    if (err) {
+        console.error('Error reading directory:', err);
+    } else {
+        console.log('Files in node-postgres:', files);
+    }
+});
+
+// Endpoint get all users
 app.get('/users', async (req, res) => {
     try {
         const users = await getAllUsers();
@@ -35,7 +43,7 @@ app.get('/users/:id', async (req, res) => {
         const user = await getUserById(userId);
 
         if (!user) {
-        return res.status(404).json({ error: 'User not found' });
+            return res.status(404).json({ error: 'User not found' });
         }
 
         res.json({ user });
@@ -47,25 +55,25 @@ app.get('/users/:id', async (req, res) => {
 
 // Endpoint login
 app.post('/login', async (req, res) => {
-  try {
-    const { username, password } = req.body;
+    try {
+        const { username, password } = req.body;
 
-    validateLogin({ username, password });
+        validateLogin({ username, password });
 
-    // Authenticate user
-    const user = await loginUser(username, password);
+        // Authenticate user
+        const user = await loginUser(username, password);
 
-    // Generate a JWT token
-    const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '12h' });
+        // Generate a JWT token
+        const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '12h' });
 
-    res.json({ message: 'Login successful', user, token });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+        res.json({ message: 'Login successful', user, token });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
 });
 
 app.listen(port, () => {
-  console.log(`Yeay! Server is successfully running on port: ${port}`);
+    console.log(`Yeay! Server is successfully running on port: ${port}`);
 });
 
 // Endpoint to request password reset
@@ -97,7 +105,7 @@ app.get('/reset/:token', async (req, res) => {
             <button type="submit">Reset Password</button>
         </form>
     `);
-  });
+});
   
 app.post('/reset/:token', async (req, res) => {
     const { token } = req.params;
