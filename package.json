@@ -22,8 +22,5 @@
   },
   "scripts": {
     "start": "bun run server.js"
-  },
-  "engines": {
-    "node": "20.13.1"
   }
 }
