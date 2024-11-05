@@ -12,13 +12,13 @@
       "dest": "/server.js"
     }
   ],
-  "env": {
-    "BUN_INSTALL": "1",
-    "NODE_ENV": "production"
-  },
   "functions": {
     "*/**/*.js": {
       "runtime": "bun"
     }
+  },
+  "env": {
+    "BUN_INSTALL": "1",
+    "NODE_ENV": "production"
   }
 }
