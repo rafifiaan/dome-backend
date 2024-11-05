@@ -17,13 +17,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Log untuk memeriksa apakah drizzle-orm terpasang dengan benar
-fs.readdir('./node_modules/drizzle-orm/node-postgres', (err, files) => {
-    if (err) {
-        console.error('Error reading directory:', err);
-    } else {
-        console.log('Files in node-postgres:', files);
-    }
+app.listen(port, () => {
+    console.log(`Yeay! Server is successfully running on port: ${port}`);
+    
+    // Log directory contents
+    console.log('Checking node-postgres directory contents...');
+    fs.readdir('./node_modules/drizzle-orm/node-postgres', (err, files) => {
+        if (err) {
+            console.error('Error reading directory:', err);
+        } else {
+            console.log('Files in node-postgres:', files);
+        }
+    });
 });
+
+  // Endpoint untuk merespon "Hello"
+app.get('/', (req, res) => {
+    res.send('Hello');
+})
 
 // Endpoint get all users
 app.get('/users', async (req, res) => {
@@ -72,9 +83,6 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Yeay! Server is successfully running on port: ${port}`);
-});
 
 // Endpoint to request password reset
 app.post('/forgot-password', async (req, res) => {
