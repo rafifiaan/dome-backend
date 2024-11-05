@@ -1,11 +1,10 @@
-// src/db/connection.js
 import { Pool } from 'pg';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Kysely, PostgresDialect } from 'kysely';
-import * as schema from './dbSchema';
-import { users } from './dbSchemaKysely';
+import * as drizzleSchema from './dbSchema';
+import { kyselySchema } from './dbSchemaKysely';
 
-// Drizzle ORM Configuration
+// Konfigurasi Pool untuk PostgreSQL
 const pool = new Pool({
   connectionString: process.env.SUPABASE_URL,
 });
@@ -15,12 +14,13 @@ pool.on('error', (err) => {
   process.exit(-1);
 });
 
-export const drizzleDb = drizzle(pool, { schema });
+// Konfigurasi Drizzle
+export const drizzleDb = drizzle(pool, { schema: drizzleSchema });
 
-// Kysely Configuration
+// Konfigurasi Kysely
 export const kyselyDb = new Kysely({
   dialect: new PostgresDialect({
     pool,
   }),
-  schema: { users },
+  schema: kyselySchema, // menggunakan schema untuk Kysely
 });
