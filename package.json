@@ -21,7 +21,8 @@
     "typescript": "^5.6.2"
   },
   "scripts": {
-    "start": "bun install && bun run server.js"
+    "preinstall": "bun install",
+    "start": "bun run server.js"
   },
   "engines": {
     "node": "20.13.1"
