@@ -7,6 +7,7 @@ import { getAllKaryawan, getKaryawanById } from './src/services/employeeService'
 import { validateLogin } from './src/validators/loginValidator';
 import authenticate from './middleware/authenticate';
 import fs from 'fs'; // Impor fs untuk membaca file/direktori
+import cors from 'cors';
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors());
 
 app.use((req, res, next) => {
     console.log(`Request received: ${req.method} ${req.url}`);
