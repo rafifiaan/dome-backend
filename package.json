@@ -22,6 +22,6 @@
   },
   "scripts": {
     "build": "bun build server.js --target node --outdir dist",
-    "start": "bun run server.js"
+    "start": "bun run /dist/server.js"
   }
 }

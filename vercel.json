@@ -2,11 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "curl -fsSL https://bun.sh/install | bash && ~/.bun/bin/bun install --frozen-lockfile",
   "buildCommand": "~/.bun/bin/bun run build",
-  "startCommand": "bun run server.js",
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/server.js"
+      "dest": "/dist/server.js"
     }
   ],
   "env": {
