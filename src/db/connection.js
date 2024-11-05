@@ -1,5 +1,5 @@
 import { Pool } from 'pg';
-import { drizzle } from 'drizzle-orm/node-postgres';
+import { drizzle } from 'drizzle-orm';
 import { Kysely, PostgresDialect } from 'kysely';
 import * as drizzleSchema from './dbSchema';
 import { kyselySchema } from './dbSchemaKysely';
