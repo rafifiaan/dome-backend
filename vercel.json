@@ -2,8 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "./server.js",
-      "use": "@vercel/node"
+      "src": "./**/*.js",
+      "use": "@vercel/bun"
     }
   ],
   "routes": [
@@ -15,12 +15,6 @@
   "env": {
     "BUN_INSTALL": "1",
     "NODE_ENV": "production"
-  },
-  "build": {
-    "env": {
-      "NODE_ENV": "production",
-      "BUN_INSTALL": "1"
-    }
   },
   "functions": {
     "*/**/*.js": {
