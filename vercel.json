@@ -11,10 +11,10 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "outputDirectory": ".",
   "functions": {
     "server.js": {
       "runtime": "nodejs18.x"
     }
-  }
+  },
+  "outputDirectory": "."
 }
