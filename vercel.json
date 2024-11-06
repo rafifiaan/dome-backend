@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
+  "installCommand": "curl -fsSL https://bun.sh/install | bash && ~/.bun/bin/bun install --frozen-lockfile",
+  "buildCommand": "bun run build",
   "routes": [
     {
       "src": "/(.*)",
@@ -13,7 +13,7 @@
   },
   "functions": {
     "server.js": {
-      "runtime": "vercel-node@18"
+      "runtime": "nodejs@18"
     }
   },
   "outputDirectory": "."
