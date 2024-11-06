@@ -180,4 +180,4 @@ app.get('/karyawan/:id', authenticate, async (req, res) => {
     }  
 });
 
-export default createRequestHandler(app);
+module.exports = app;
